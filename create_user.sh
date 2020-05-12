@@ -1,7 +1,10 @@
 #!/bin/bash
 
-USERNAME="cstest"
-FULLNAME="John Doe"
+read -p 'First Name: ' FIRST
+read -p 'Family Name: ' FAMILY
+
+USERNAME=$(echo "$FIRST$FAMILY" | awk '{print tolower($0)}')
+FULLNAME="$FIRST $FAMILY"
 PASSWORD="combostrike"
 
 # ====
