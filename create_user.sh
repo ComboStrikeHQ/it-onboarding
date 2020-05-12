@@ -1,7 +1,12 @@
 #!/bin/bash
 
-read -p 'First Name: ' FIRST
-read -p 'Family Name: ' FAMILY
+# Admin credentials to enable FileVault for a new user
+# Initially can be hardcoded when we agree on using some standard ones for admin user
+read -p $'give your admin name (for example: CSadmin):\n' ADMINNAME
+read -sp $'Pass:\n' ADMINPASS
+
+read -p $'\nFirst Name for created user:\n' FIRST
+read -p $'\nFamily Name for created user:\n' FAMILY
 
 USERNAME=$(echo "$FIRST$FAMILY" | awk '{print tolower($0)}')
 FULLNAME="$FIRST $FAMILY"
@@ -30,3 +35,10 @@ dscl . -passwd /Users/$USERNAME $PASSWORD
 createhomedir -c -u $USERNAME > /dev/null
 
 echo "Created user #$USERID: $USERNAME ($FULLNAME)"
+
+# Set Secure Token for newly created account
+# This one will be needed for FaulVault activation
+sysadminctl -adminUser $ADMINNAME -adminPassword $ADMINPASS -secureTokenOn $USERNAME -password $PASSWORD
+
+# Enable FileVault
+fdesetup enable -user $ADMINNAME -usertoadd $USERID
