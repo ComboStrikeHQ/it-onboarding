@@ -32,3 +32,9 @@ su CS-admin
 sudo dscl . create /Users/CS-admin IsHidden 0
 sudo defaults write /Library/Preferences/com.apple.loginwindow SHOWOTHERUSERS_MANAGED -bool TRUE
 ```
+- run setup script with
+```bash
+sudo /bin/sh set-up.sh
+```
+## List of features in set-up.sh
+- WIP
