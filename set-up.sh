@@ -9,24 +9,24 @@ brew cask install google-chrome
 brew cask install slack
 
 # Set the screen to lock as soon as the screensaver starts
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
+sudo defaults write com.apple.screensaver askForPassword -int 1
+sudo defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 
 # Show all filename extensions (so that "Evil.jpg.app" cannot masquerade easily)
-defaults write NSGlobalDomain AppleShowAllExtensions -bool TRUE 
+sudo defaults write NSGlobalDomain AppleShowAllExtensions -bool TRUE 
 
 # Disable crash reporter (the dialog which appears after an application crashes and
 # prompts to report the problem to Apple):
-defaults write com.apple.CrashReporter DialogType none
+sudo defaults write com.apple.CrashReporter DialogType none
 
 # background automatic updates for enforcing critical updates
-/usr/bin/defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist AutomaticCheckEnabled -bool TRUE
-/usr/bin/defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist AutomaticDownload -bool TRUE
-/usr/bin/defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist AutomaticallyInstallMacOSUpdates -bool TRUE
-/usr/bin/defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist ConfigDataInstall -bool TRUE
-/usr/bin/defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist CriticalUpdateInstall -bool TRUE
-/usr/bin/defaults write /Library/Preferences/com.apple.commerce.plist AutoUpdate -bool TRUE
+sudo /usr/bin/defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist AutomaticCheckEnabled -bool TRUE
+sudo /usr/bin/defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist AutomaticDownload -bool TRUE
+sudo /usr/bin/defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist AutomaticallyInstallMacOSUpdates -bool TRUE
+sudo /usr/bin/defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist ConfigDataInstall -bool TRUE
+sudo /usr/bin/defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist CriticalUpdateInstall -bool TRUE
+sudo /usr/bin/defaults write /Library/Preferences/com.apple.commerce.plist AutoUpdate -bool TRUE
 
 # Set Firmware password
 # /usr/sbin/firmwarepasswd -setpasswd <password>
@@ -75,7 +75,7 @@ echo "<dict>
 </dict>" > /private/var/tmp/pwpolicy.plist
 
 
-pwpolicy -u $LOGGEDINUSER -clearaccountpolicies
-pwpolicy -u $LOGGEDINUSER -setaccountpolicies /private/var/tmp/pwpolicy.plist
+sudo pwpolicy -u $LOGGEDINUSER -clearaccountpolicies
+sudo pwpolicy -u $LOGGEDINUSER -setaccountpolicies /private/var/tmp/pwpolicy.plist
 
-pwpolicy -a CSadmin -u $LOGGEDINUSER -setpolicy "newPasswordRequired=1"
+sudo pwpolicy -a CSadmin -u $LOGGEDINUSER -setpolicy "newPasswordRequired=1"
