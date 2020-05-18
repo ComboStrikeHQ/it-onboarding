@@ -8,6 +8,9 @@ brew analytics off
 brew cask install google-chrome
 brew cask install slack
 
+# Set office wireless network
+sudo networksetup -addpreferredwirelessnetworkatindex en0 "ComboStrike" 0 WPA2 "ComboStrike<3Games\!"
+
 # Set the screen to lock as soon as the screensaver starts
 sudo defaults write com.apple.screensaver askForPassword -int 1
 sudo defaults write com.apple.screensaver askForPasswordDelay -int 0
@@ -29,7 +32,7 @@ sudo /usr/bin/defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist
 sudo /usr/bin/defaults write /Library/Preferences/com.apple.commerce.plist AutoUpdate -bool TRUE
 
 # Set Firmware password
-# /usr/sbin/firmwarepasswd -setpasswd <password>
+# /usr/sbin/firmwarepasswd -setpasswd <password> -setmode command
 # Are we agreeing on one standard for all machines?
 
 # Enable application level firewall
