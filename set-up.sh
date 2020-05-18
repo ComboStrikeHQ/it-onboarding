@@ -6,7 +6,7 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 
 # Show all filename extensions (so that "Evil.jpg.app" cannot masquerade easily)
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true[ ]
+defaults write NSGlobalDomain AppleShowAllExtensions -bool TRUE 
 
 # Disable crash reporter (the dialog which appears after an application crashes and
 # prompts to report the problem to Apple):
@@ -70,4 +70,4 @@ echo "<dict>
 pwpolicy -u $LOGGEDINUSER -clearaccountpolicies
 pwpolicy -u $LOGGEDINUSER -setaccountpolicies /private/var/tmp/pwpolicy.plist
 
-pwpolicy -a CSadmin -u LOGGEDINUSER -setpolicy "newPasswordRequired=1"
+pwpolicy -a CSadmin -u $LOGGEDINUSER -setpolicy "newPasswordRequired=1"
