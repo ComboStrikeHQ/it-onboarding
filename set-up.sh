@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Install xcode, brew and some essentials
+xcode-select --install
+mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+brew analytics off
+
+brew cask install google-chrome
+brew cask install slack
+
 # Set the screen to lock as soon as the screensaver starts
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
