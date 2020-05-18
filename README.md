@@ -28,13 +28,13 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow SHOWOTHERUSERS_MA
 ```
 - use the following for a **revert action**
 ```bash
-su CS-admin
+su CSadmin
 sudo dscl . create /Users/CS-admin IsHidden 0
 sudo defaults write /Library/Preferences/com.apple.loginwindow SHOWOTHERUSERS_MANAGED -bool TRUE
 ```
 - run setup script with
 ```bash
-sudo /bin/sh set-up.sh
+/bin/sh set-up.sh
 ```
 ## List of features in set-up.sh
 - WIP
