@@ -1,41 +1,18 @@
-## Creating admin user
-- first account on the freshly installed system is admin account
-- it can have a generic name like CSadmin and a password we can agree upon
-## Creating employee account, a.k.a, standard account
-- After logging in CSadmin run script following:
-```bash
-sudo /bin/sh create_user.sh
-```
-- it will prompt for admin name and pass
-- then for user name
-  - user name is first and last name of the new employee
-  - password is generic **combostrike** which will prompt users to change themselves afterwards
-- also this script activates FileVault encryption for the created user
-- to revert user creation (in case name is wrong for example):
-```bash
-dscl . -list /Users
-sudo dscl . -delete /Users/<username>
-```
+## Follow the instructions of the first boot and create user account (you can use generic password, as user will be required to change it after restart)
 ## Login into created user account
-It is considered a best practice by [Apple](https://help.apple.com/machelp/mac/10.12/index.html#/mh11389) to use a separate
-standard account for daily work and use administrator account only for installations
-and administration purposes. Additionally it is a good idea to hide its existence from
-from a user.
-- First hide admin account with following lines:
+- create environment variable with firmware password
 ```bash
-su CS-admin
-sudo dscl . create /Users/CS-admin IsHidden 1
-sudo defaults write /Library/Preferences/com.apple.loginwindow SHOWOTHERUSERS_MANAGED -bool FALSE
+export FIRMWARE_PASSWORD='<password>'
 ```
-- use the following for a **revert action**:
+- install xcode command line with
 ```bash
-su CSadmin
-sudo dscl . create /Users/CS-admin IsHidden 0
-sudo defaults write /Library/Preferences/com.apple.loginwindow SHOWOTHERUSERS_MANAGED -bool TRUE
+xcode-select --install
 ```
 - Then run setup script with:
 ```bash
 /bin/sh set-up.sh
 ```
+- Reboot the machine and you'll see new user will be prompted to  change password
 ## List of features in set-up.sh
 - WIP
+

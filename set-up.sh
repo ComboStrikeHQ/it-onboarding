@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# Install xcode, brew and some essentials
-xcode-select --install
+# Install brew and some essentials
 if test ! $(which brew); then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
@@ -16,7 +15,6 @@ sudo networksetup -addpreferredwirelessnetworkatindex en0 "ComboStrike" 0 WPA2 "
 # Set the screen to lock as soon as the screensaver starts
 sudo defaults write com.apple.screensaver askForPassword -int 1
 sudo defaults write com.apple.screensaver askForPasswordDelay -int 0
-
 
 # Show all filename extensions (so that "Evil.jpg.app" cannot masquerade easily)
 sudo defaults write NSGlobalDomain AppleShowAllExtensions -bool TRUE 
@@ -35,7 +33,7 @@ sudo /usr/bin/defaults write /Library/Preferences/com.apple.commerce.plist AutoU
 
 # Set Firmware password
 # /usr/sbin/firmwarepasswd -setpasswd <password> -setmode command
-# Are we agreeing on one standard for all machines?
+# /usr/bin/expect -c "spawn /usr/sbin/firmwarepasswd -setpasswd ; expect ":" ; send "$FIRMWARE_PASSWORD\\n" ; expect ":" ; send "$FIRMWARE_PASSWORD\\n" ; interact"
 
 # Enable application level firewall
 /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
@@ -57,4 +55,7 @@ sudo pkill -HUP socketfilterfw
 
 # Set up password policy
 sudo /bin/bash ./pass-policy.sh
+
+# Delete pass env variable
+unset $FIRMWARE_PASSWORD
 
