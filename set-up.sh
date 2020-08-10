@@ -83,4 +83,4 @@ echo "<dict>
 sudo pwpolicy -u $LOGGEDINUSER -clearaccountpolicies
 sudo pwpolicy -u $LOGGEDINUSER -setaccountpolicies /private/var/tmp/pwpolicy.plist
 
-sudo pwpolicy -a CSadmin -u $LOGGEDINUSER -setpolicy "newPasswordRequired=1"
+sudo pwpolicy -a $LOGGEDINUSER -u $LOGGEDINUSER -setpolicy "newPasswordRequired=1"
