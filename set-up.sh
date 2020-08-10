@@ -2,7 +2,9 @@
 
 # Install xcode, brew and some essentials
 xcode-select --install
-mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+if test ! $(which brew); then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+fi
 brew analytics off
 
 brew cask install google-chrome
