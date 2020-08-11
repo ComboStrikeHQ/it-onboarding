@@ -59,3 +59,6 @@ sudo /bin/bash ./pass-policy.sh
 # Delete pass env variable
 unset $FIRMWARE_PASSWORD
 
+# Manage host file to block malicious domains
+curl "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" | sudo tee -a /etc/hosts
+
