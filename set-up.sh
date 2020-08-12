@@ -9,6 +9,9 @@ brew analytics off
 brew cask install google-chrome
 brew cask install slack
 
+brew install dnscrypt-proxy
+brew install dnsmasq
+
 # Set office wireless network
 sudo networksetup -addpreferredwirelessnetworkatindex en0 "ComboStrike" 0 WPA2 "ComboStrike<3Games\!"
 
@@ -61,4 +64,13 @@ unset $FIRMWARE_PASSWORD
 
 # Manage host file to block malicious domains
 curl "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" | sudo tee -a /etc/hosts
+
+# dnsmasq & dnscrypt settings
+
+echo 'server=127.0.0.1#5355' >> $(brew --prefix)/etc/dnsmasq.conf #in case of default 5355 port of dnscrypt
+echo 'cache-size=2000' >> $(brew --prefix)/etc/dnsmasq.conf
+echo 'domain-needed' >> $(brew --prefix)/etc/dnsmasq.conf
+echo 'bogus-priv' >> $(brew --prefix)/etc/dnsmasq.conf
+echo 'stop-dns-rebind' >> $(brew --prefix)/etc/dnsmasq.conf
+echo 'listen_addresses = ['127.0.0.1:5355', '[::1]:5355']' >> $(brew --prefix)/etc/dnscrypt-proxy.toml
 
