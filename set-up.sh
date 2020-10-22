@@ -57,7 +57,7 @@ sudo /usr/bin/defaults write /Library/Preferences/com.apple.commerce.plist AutoU
 sudo pkill -HUP socketfilterfw
 
 # Set up password policy
-sudo /bin/bash ./pass-policy.sh
+sudo /bin/bash ./pass_policy.sh
 
 # Delete pass env variable
 unset $FIRMWARE_PASSWORD
