@@ -19,6 +19,10 @@ xcode-select --install
     - Click "Download file (MAC & LINUX)
     - create directory `sudo mkdir -p /Library/Google/Chrome`
     - move freshly downloaded file there `sudo mv ~/Downloads/CloudManagementEnrollmentToken /Library/Google/Chrome/`
+	- additionally to enforce UBlock Origin, that still can be disabled by a user - give in terminal following:
+    ```bash
+	defaults write "com.google.Chrome" "ExtensionSettings" -dict-add "cjpalhdlnbpafiamejdnhcphjbkeiagm" '{ "installation_mode"="normal_installed"; "update_url"="https://clients2.google.com/service/update2/crx"; }'
+    ```
     - restart Chrome and check if it works, there should be a new laptop in management console
     - for more info or troubleshooting [Google's guide](https://support.google.com/chrome/a/answer/9301891?hl=en)
 - DNS settings (optional but highly recommended, becuase it will reduce risk of DNS spoofing and eavesdropping):
