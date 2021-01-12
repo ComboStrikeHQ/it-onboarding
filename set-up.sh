@@ -6,8 +6,8 @@ if test ! $(which brew); then
 fi
 brew analytics off
 
-brew cask install google-chrome
-brew cask install slack
+brew install --cask google-chrome
+brew install --cask slack
 
 brew install dnscrypt-proxy
 brew install dnsmasq
