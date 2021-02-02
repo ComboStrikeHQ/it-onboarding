@@ -1,4 +1,6 @@
 ## Follow the instructions of the first boot and create user account (you shall use generic password ("combostrike"), as user will be required to change it after restart)
+- create user account (you shall use generic password "combostrike", as user will be required to change it after restart anyway
+- opt out from using the location servises, siri, and sending system information to Apple
 ## Login into created user account
 - create environment variable with firmware password 
 ```bash
