@@ -1,4 +1,4 @@
-## Follow the instructions of the first boot and create user account (you can use generic password, as user will be required to change it after restart)
+## Follow the instructions of the first boot and create user account (you shall use generic password ("combostrike"), as user will be required to change it after restart)
 ## Login into created user account
 - create environment variable with firmware password 
 ```bash
