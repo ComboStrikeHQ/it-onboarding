@@ -1,6 +1,6 @@
 ## Follow the instructions of the first boot and create user account (you can use generic password, as user will be required to change it after restart)
 ## Login into created user account
-- create environment variable with firmware password
+- create environment variable with firmware password 
 ```bash
 export FIRMWARE_PASSWORD='<password>'
 ```
@@ -12,6 +12,12 @@ xcode-select --install
 ```bash
 /bin/sh set-up.sh
 ```
+- In order to set password length policy and encrypt disk with FileVault run pass_policy script:
+  - Note: for the correct outcome machine should have a default password "combostrike"
+```bash
+/bin/sh pass_policy.sh
+```
+
 - Set Chrome policy enrolment
     - In admin console go to Devices
     - Click Chrome management and then Managed browsers
