@@ -2,6 +2,14 @@
 MIN_LENGTH=10
 
 LOGGEDINUSER=$(ls -l /dev/console | awk '{print $3}')
+PASSWORD="combostrike"
+
+# enforce FileVault disk encryption
+
+if ! fdesetup isactive; then
+	sudo fdesetup enable -user $LOGGEDINUSER -password $PASSWORD
+fi
+
 
 
 echo "<dict>
