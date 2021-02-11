@@ -46,4 +46,12 @@ xcode-select --install
 - Reboot the machine and you'll see new user will be prompted to  change password
 ## List of features in set-up.sh
 - WIP
+## Interactive security enhacement script
+- applies FileVault encryption by interacting with user
+- deploys password policy for minimum 12 symbols
+- to make it executable, so user can just double-click it run:
+    ```bash
+    mv interactive_security_enhancement.sh ./interactive_security_enhancement && chmod +x interactive_security_enhancement 
+    ```
+
 
