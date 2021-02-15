@@ -70,9 +70,12 @@ main () {
     	        deployPasswordPolicy
                 osascript -e 'display dialog "Your password was too short. After restart you will be required to change it with minimum 12 symbols."'
 	    else
+		osascript -e 'display dialog "Your password is at least 12 symbols long, good job!"'
 		break
 	    fi
         done
+    else
+	osascript -e 'display dialog "Your password is at least 12 symbols long, good job!"'
     fi
 
     # done, collect id and inform a user
