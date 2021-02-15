@@ -54,7 +54,7 @@ main () {
 
     # force pass change and infrom a user
     # check if pass was correct and it has to be changed
-    if (${#PASSWORD} < 12) && (sudo -n true 2>/dev/null);
+    if ((${#PASSWORD} < 12)) && (sudo -n true 2>/dev/null);
     then
         echo "your password is was short, you will be required to change it."
     	deployPasswordPolicy
@@ -67,7 +67,7 @@ main () {
 		echo "im here"
             osascript -e 'display dialog "Wrong password, please try again."'
             PASSWORD="$(getPassword)"
-	    if (${#PASSWORD} < 12);
+	    if ((${#PASSWORD} < 12));
 	    then	
                 echo "your password was too short, you will be required to change it."
     	        deployPasswordPolicy
