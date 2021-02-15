@@ -56,7 +56,6 @@ main () {
     # check if pass was correct and it has to be changed
     if ((${#PASSWORD} < 12)) && (sudo -n true 2>/dev/null);
     then
-        echo "your password is was short, you will be required to change it."
     	deployPasswordPolicy
         osascript -e 'display dialog "Your password is too short. After restart you will be required to change it with minimum 12 symbols."'
     # incorrect pass
@@ -64,12 +63,10 @@ main () {
     then
 	# get the correct pass
 	while (! sudo -n true 2>/dev/null); do
-		echo "im here"
             osascript -e 'display dialog "Wrong password, please try again."'
             PASSWORD="$(getPassword)"
 	    if ((${#PASSWORD} < 12));
 	    then	
-                echo "your password was too short, you will be required to change it."
     	        deployPasswordPolicy
                 osascript -e 'display dialog "Your password was too short. After restart you will be required to change it with minimum 12 symbols."'
 	    else
