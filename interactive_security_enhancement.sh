@@ -27,7 +27,7 @@ deployPasswordPolicy() {
 # can't indent osascript, because it yields error
 getPassword() {
 osascript <<-EndOfScript
-text returned of (display dialog "Please type your password. Make sure it is right." default answer "")
+text returned of (display dialog "Please type your password. Make sure it is right." with hidden answer default answer "")
 EndOfScript
 }
 
