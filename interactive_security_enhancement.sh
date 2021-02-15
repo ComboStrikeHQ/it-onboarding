@@ -38,17 +38,17 @@ encryption () {
 }
 
 main () {
-    LOGGEDINUSER=$(ls -l /dev/console | awk '{print $3}')
+    LOGGEDINUSER="$(ls -l /dev/console | awk '{print $3}')"
 
 
     # first try
-    PASSWORD=$(getPassword)
+    PASSWORD="$(getPassword)"
     encryption | tee ~/Desktop/SEND_ME.txt
 
     # loop if password was wrong
     while (! fdesetup isactive); do
         osascript -e 'display dialog "Wrong password, please try again."'
-        PASSWORD=$(getPassword)
+        PASSWORD="$(getPassword)"
 	encryption | tee ~/Desktop/SEND_ME.txt
     done
 
@@ -66,7 +66,7 @@ main () {
 	while (! sudo -n true 2>/dev/null); do
 		echo "im here"
             osascript -e 'display dialog "Wrong password, please try again."'
-            PASSWORD=$(getPassword)
+            PASSWORD="$(getPassword)"
 	    if (${#PASSWORD} < 12);
 	    then	
                 echo "your password was too short, you will be required to change it."
@@ -79,7 +79,7 @@ main () {
     fi
 
     # done, collect id and inform a user
-    echo $LOGGEDINUSER >> ~/Desktop/SEND_ME.txt
+    echo "$LOGGEDINUSER" >> ~/Desktop/SEND_ME.txt
     osascript -e 'display dialog "Done, thank you!\nPlease do not forget to send us back the file SEND_ME.txt that was saved on your desktop."'
 }
 
